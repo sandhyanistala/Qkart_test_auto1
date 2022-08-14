@@ -1,14 +1,15 @@
 package QKART_SANITY_LOGIN.Module1;
 
-import java.time.Duration;
+//import java.time.Duration;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
+//import org.openqa.selenium.NoSuchElementException;
+//import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.By.ByXPath;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
+//import org.openqa.selenium.support.ui.ExpectedConditions;
+//import org.openqa.selenium.support.ui.FluentWait;
 
 public class Login {
     RemoteWebDriver driver;
@@ -26,8 +27,12 @@ public class Login {
 
     public Boolean PerformLogin(String Username, String Password) throws InterruptedException {
         // Find the Username Text Box
-        WebElement username_txt_box = this.driver.findElement(By.id("username"));
+        //
+        //Thread.sleep(1000);
+        WebElement username_txt_box = this.driver.findElement(By.id("username")) ;
 
+        //driver.findElement(By.XPath("//*[@id="root"]/div/div/div[2]/div/div[1]/div");
+     //findElement(By.xpath("//button[@class='button']")
         // Enter the username
         username_txt_box.sendKeys(Username);
 
@@ -56,7 +61,7 @@ public class Login {
         try {
             // Find the username label (present on the top right of the page)
             WebElement username_label;
-             username_label = this.driver.findElement(By.id("username-text"));
+             username_label = this.driver.findElement(By.className("username-text"));
             return username_label.getText().equals(Username);
         } catch (Exception e) {
             return false;
