@@ -51,8 +51,10 @@ public class SearchResult {
 
             // TODO: CRIO_TASK_MODULE_TEST_AUTOMATION - TEST CASE 04: MILESTONE 2
             // Find the link of size chart in the parentElement and click on it
-         this.parentElement.findElement(By.xpath("//div[contains(@class,'MuiCardContent-root')]//button")).click();
-          
+         WebElement sizechartlink = this.parentElement.findElement(By.xpath("//div[contains(@class,'MuiCardContent-root')]//button"));
+             Boolean flag= sizechartlink.isDisplayed(); 
+              sizechartlink.click();
+            if (flag =true) {System.out.println("");}
 
             return true;
         } catch (Exception e) {
@@ -96,6 +98,7 @@ public class SearchResult {
             WebElement sizechartElement =this.parentElement.findElement(By.tagName("button"));
             if (sizechartElement.isDisplayed()){
                 if (sizechartElement.getText().toUpperCase().equals("SIZE CHART"));
+                System.out.println(sizechartElement.getText().toUpperCase() + "is exists");
               status =true;
               return true;
             }
@@ -144,6 +147,8 @@ public class SearchResult {
             }
             if(actualTableHeaders.equals(expectedTableHeaders) && actualTableBody.equals(expectedTableBody)){
               status=true;
+              // if (status=true){System.out.println((WebElement)tableHeader.getText());}
+
              return status;
 
             }

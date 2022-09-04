@@ -134,7 +134,7 @@ public class QkartSanity {
         if (!status) {
             logStatus("TestCase 3", "Test Case Failure. Unable to search for given product", "FAIL");
             return false;
-        }
+        }  else   logStatus("TestCase 3", "Test Case 3. Successfully searched the given product", "Pass");
 
         // Fetch the search results
         List<WebElement> searchResults = homePage.getSearchResults();
@@ -155,7 +155,7 @@ public class QkartSanity {
                 logStatus("TestCase 3", "Test Case Failure. Test Results contains un-expected values: " + elementText,
                         "FAIL");
                 return false;
-            }
+            } else  logStatus("TestCase 3", "Test Results contains the expected values: " + elementText, "pass");
         }
 
         logStatus("Step Success", "Successfully validated the search results ", "PASS");
@@ -164,7 +164,7 @@ public class QkartSanity {
         // Search for product
         status = homePage.searchForProduct("Gesundheit");
         if (!status) {
-            logStatus("TestCase 3", "Test Case Failure. Unable to search for given product", "FAIL");
+            logStatus("TestCase 3", "Test Case Failure. Unable to search for given product","FAIL");
             return false;
         }
 
@@ -514,6 +514,27 @@ public class QkartSanity {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         try {
+              System.out.println("");
+
+           // Execute Test Case 2
+            totalTests += 1;
+            status = TestCase02(driver);
+            if (status) {
+            passedTests += 1;
+            }
+
+             System.out.println("");
+           
+
+           // Execute Test Case 3
+            totalTests += 1;
+            status = TestCase03(driver);
+            if (status) {
+            passedTests += 1;
+            }
+
+             System.out.println("");
+
             
              System.out.println("");
 
