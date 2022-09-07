@@ -516,7 +516,7 @@ public class QkartSanity {
         try {
               System.out.println("");
 
-           // Execute Test Case 2
+        // //    // Execute Test Case 2
             totalTests += 1;
             status = TestCase02(driver);
             if (status) {
@@ -526,7 +526,7 @@ public class QkartSanity {
              System.out.println("");
            
 
-           // Execute Test Case 3
+        // //    // Execute Test Case 3
             totalTests += 1;
             status = TestCase03(driver);
             if (status) {
@@ -535,10 +535,7 @@ public class QkartSanity {
 
              System.out.println("");
 
-            
-             System.out.println("");
-
-            // // Execute Test Case 4
+            // Execute Test Case 4
             totalTests += 1;
             status = TestCase04(driver);
             if (status) {
@@ -547,7 +544,7 @@ public class QkartSanity {
 
             System.out.println("");
 
-            // Execute Test Case 5
+        //     // // Execute Test Case 5
             totalTests += 1;
             status = TestCase05(driver);
             if (status) {

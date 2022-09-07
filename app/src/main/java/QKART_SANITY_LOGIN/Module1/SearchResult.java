@@ -127,11 +127,29 @@ public class SearchResult {
              * Validate that the contents of expectedTableBody are present in the table body
              * in the same order
              */
-            List<WebElement> tableHeaders =driver.findElements(By.xpath("//table/thread/tr/th"));
-            List<String> actualTableHeaders = new ArrayList<>();
-            for (WebElement tableHeader:tableHeaders){actualTableHeaders.add(tableHeader.getText());
+            List<WebElement> tableHeaders =driver.findElements(By.xpath("//table/thead/tr/th"));
+           // List<String> actualTableHeaders = new ArrayList<>();
+           
+          int count =0;
+          
+          for (WebElement tableHeader:tableHeaders){
+            for (String expectedtableHeader : expectedTableHeaders){
+                    if (tableHeader.getText().equals(expectedTableHeaders)){
+                        count=count+1;
+                        break;
+                    }
+                    int headercount=tableHeaders.size();
+                    if (headercount==count){
+                        status=true;
+
+                   }
             }
+       }
+                                  
             
+                            
+            
+                        
             List<List<String>> actualTableBody = new ArrayList<>();
             List <String> actualTableBodyRowElements =new ArrayList<>();
             List<WebElement> tableBodyRows =driver.findElements(By.xpath("//table/tbody/tr"));
@@ -145,13 +163,13 @@ public class SearchResult {
                  actualTableBody.add(actualTableBodyRowElements);
 
             }
-            if(actualTableHeaders.equals(expectedTableHeaders) && actualTableBody.equals(expectedTableBody)){
-              status=true;
-              // if (status=true){System.out.println((WebElement)tableHeader.getText());}
+        //    if(actualTableHeaders.equals(expectedTableHeaders) && actualTableBody.equals(expectedTableBody)){
+                                   
+        //         status=true;
+             
+        //      return status;
 
-             return status;
-
-            }
+        //     }
 
         } catch (Exception e) {
             System.out.println("Error while validating chart contents");
